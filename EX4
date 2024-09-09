@@ -1,0 +1,32 @@
+def complet():
+    # a)números ímpares
+    sequence_a = [1, 3, 5, 7]
+    complet_a = sequence_a[-1] + 2
+    print(f"a) Próximo elemento: {complet_a}")
+
+    # b)potências de 2
+    sequence_b = [2, 4, 8, 16, 32, 64]
+    complet_b = sequence_b[-1] * 2
+    print(f"b) Próximo elemento: {complet_b}")
+
+    # c)quadrados perfeitos
+    sequence_c = [0, 1, 4, 9, 16, 25, 36]
+    complet_c = (len(sequence_c))**2
+    print(f"c) Próximo elemento: {complet_c}")
+
+    # d)quadrados perfeitos de números pares
+    sequence_d = [4, 16, 36, 64]
+    complet_d = (len(sequence_d) * 2)**2
+    print(f"d) Próximo elemento: {complet_d}")
+
+    # e)Fibonacci
+    sequence_e = [1, 1, 2, 3, 5, 8]
+    complet_e = sequence_e[-1] + sequence_e[-2]
+    print(f"e) Próximo elemento: {complet_e}")
+
+    # f)alternada de pares e primos
+    sequence_f = [2, 10, 12, 16, 17, 18, 19]
+    complet_f = sequence_f[-1] + 1
+    print(f"f) Próximo elemento: {complet_f}")
+
+complet()
