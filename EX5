@@ -1,0 +1,51 @@
+import random
+import time
+
+def simular_lampadas():
+    interruptores = {1: 'desligado', 2: 'desligado', 3: 'desligado'}
+    lampadas = {1: 'desligada', 2: 'desligada', 3: 'desligada'}
+    
+    #Quais interruptores controlam quais lâmpadas aleatoriamente
+    controle = {1: random.choice([1, 2, 3]), 2: random.choice([1, 2, 3]), 3: random.choice([1, 2, 3])}
+    
+    #Todos os interruptores controlam lâmpadas diferentes
+    while len(set(controle.values())) < 3:
+        controle = {1: random.choice([1, 2, 3]), 2: random.choice([1, 2, 3]), 3: random.choice([1, 2, 3])}
+    
+    print(f"Controle dos interruptores: {controle}")
+
+    #Ação de ligar o interruptor 1
+    interruptores[1] = 'ligado'
+    lampadas[controle[1]] = 'aquecida'
+    
+    #Simular o aquecimento
+    time.sleep(2)
+    
+    #Desligar o interruptor 1 e ligar o interruptor 2
+    interruptores[1] = 'desligado'
+    interruptores[2] = 'ligado'
+    
+    #Avaliação das lâmpadas
+    estados_lampadas = {}
+    for i in range(1, 4):
+        if interruptores[2] == 'ligado' and lampadas[i] != 'aquecida':
+            estados_lampadas[i] = 'acesa'
+        elif interruptores[1] == 'desligado' and lampadas[i] == 'aquecida':
+            estados_lampadas[i] = 'quente'
+        else:
+            estados_lampadas[i] = 'fria'
+
+    return estados_lampadas, controle
+
+def identificar_interruptores():
+    estados_lampadas, controle = simular_lampadas()
+    
+    print("\nEstados das lâmpadas:")
+    for i in range(1, 4):
+        print(f"Lâmpada {i}: {estados_lampadas[i]}")
+    
+    print("\nControle dos interruptores:")
+    for interruptor, lâmpada in controle.items():
+        print(f"Interruptor {interruptor} controla a lâmpada {lâmpada}")
+
+identificar_interruptores()
