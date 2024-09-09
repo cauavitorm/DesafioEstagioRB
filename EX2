@@ -1,0 +1,20 @@
+s = input("Informe uma string: ")
+
+#Contar a ocorrência de 'a' e 'A'
+def contar_letras_a(s):
+    contador = 0
+    
+    #Percorrendo a string
+    for char in s:
+        if char == 'a' or char == 'A':
+            contador += 1
+    
+    return contador
+
+#Verificar a quantidade
+quantidade = contar_letras_a(s)
+
+if quantidade > 0:
+    print(f"A letra a aparece {quantidade} vez na string.")
+else:
+    print("A letra a não foi encontrada na string.")
